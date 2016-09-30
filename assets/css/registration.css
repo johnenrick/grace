@@ -1,0 +1,33 @@
+
+.c-modal .c-costum .c-modal-content {
+  position: absolute;
+  max-height: 100%;
+  width: 100%;
+}
+
+/*.c-modal .c-costum .-cmodal-footer {
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  position: absolute;
+  bottom: 0;
+  border-radius: 0 0 2px 2px;
+  background-color: #fafafa;
+  padding: 4px 6px;
+  height: 56px;
+  width: 100%;
+}*/
+
+.c-modal .c-modal-content .c-image-wrapper{
+	z-index:1;
+	overflow: hidden;
+  margin-bottom:0;
+}
+
+.regImage{
+  max-width: 100%;
+  max-height: calc(100%-56px); 
+}
+
+
+.marginSet{
+  margin-bottom:0;
+}

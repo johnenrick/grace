@@ -1,0 +1,133 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 07 20, 16, 5:18:01 PM
+    Author     : johnenrick
+*/
+.c-center{
+    margin-right:auto;
+    margin-left : auto;
+}
+.no-margin-bot{
+    margin-bottom : 0px;
+}
+.vcenter {
+    display: inline-block;
+    vertical-align: middle;
+    float: none;
+}
+.vertical-align {
+  display: flex;
+  flex-direction: row;
+}
+
+.vertical-align > [class^="col-"],
+.vertical-align > [class*=" col-"] {
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Optional, to align inner items 
+                              horizontally inside the column */
+}
+
+/**
+ *  Do NOT include this part into your stylesheet.
+ *  "flex: 1" or "flex-grow: 1" is added to make the inner div
+ *  - Which is also a flex-item - take up all the horizontal space
+ *  available space inside the flex container (.col-* elements)
+ */
+.vertical-align > [class^="col-"] > div,
+.vertical-align > [class*=" col-"] > div {
+  /* flex: 1; */
+  flex-grow: 1;
+}
+.prototype{
+    display:none;
+    border-style : solid;
+}
+.no-display{
+    display:none
+}
+.c-center{
+    margin-right:auto;
+    margin-left : auto;
+}
+.no-margin-bot{
+    margin-bottom : 0px;
+}
+.vcenter {
+    display: inline-block;
+    vertical-align: middle;
+    float: none;
+}
+.vertical-align {
+  display: flex;
+  flex-direction: row;
+}
+
+.vertical-align > [class^="col-"],
+.vertical-align > [class*=" col-"] {
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Optional, to align inner items 
+                              horizontally inside the column */
+}
+
+/**
+ *  Do NOT include this part into your stylesheet.
+ *  "flex: 1" or "flex-grow: 1" is added to make the inner div
+ *  - Which is also a flex-item - take up all the horizontal space
+ *  available space inside the flex container (.col-* elements)
+ */
+.vertical-align > [class^="col-"] > div,
+.vertical-align > [class*=" col-"] > div {
+  /* flex: 1; */
+  flex-grow: 1;
+}
+@-webkit-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+@-moz-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+@keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+ 
+.fade-in {
+	opacity:0;  /* make things invisible upon start */
+	-webkit-animation:fadeIn ease-in 1;  /* call our keyframe named fadeIn, use animattion ease-in and repeat it only 1 time */
+	-moz-animation:fadeIn ease-in 1;
+	animation:fadeIn ease-in 1;
+ 
+	-webkit-animation-fill-mode:forwards;  /* this makes sure that after animation is done we remain at the last keyframe value (opacity: 1)*/
+	-moz-animation-fill-mode:forwards;
+	animation-fill-mode:forwards;
+ 
+	-webkit-animation-duration:0.5s;
+	-moz-animation-duration:0.5s;
+	animation-duration:0.5s;
+}
+ 
+.fade-in.one {
+-webkit-animation-delay: 0.7s;
+-moz-animation-delay: 0.7s;
+animation-delay: 0.7s;
+}
+ 
+.fade-in.two {
+-webkit-animation-delay: 1.2s;
+-moz-animation-delay:1.2s;
+animation-delay: 1.2s;
+}
+ 
+.fade-in.three {
+-webkit-animation-delay: 1.6s;
+-moz-animation-delay: 1.6s;
+animation-delay: 1.6s;
+}
+
+@media (min-width: 970px) and (max-width: 990px){
+    #mainContent{
+        padding-top:65px;
+    }
+}
+.no-margin-top{
+    margin-top: 0px!important;
+}

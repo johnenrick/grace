@@ -1,0 +1,29 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 07 28, 16, 8:41:39 PM
+    Author     : johnenrick
+*/
+
+.btn-gold{
+    background-color: #d89b00;
+    color: white;
+    border-radius : 23px;
+}
+.btn-gold:hover{
+    color:white
+}
+.btn-circle {
+  width: 52px;
+  height: 52px;
+  text-align: center;
+  padding: 6px 0;
+  border-radius: 26px;
+  border: 6px solid rgba(216, 155, 0, 0.19);
+    -moz-background-clip: padding; 
+    -webkit-background-clip: padding; 
+    background-clip: padding-box; 
+}

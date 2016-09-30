@@ -1,0 +1,63 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 07 28, 16, 1:13:43 PM
+    Author     : johnenrick
+*/
+.navbar-default{
+    background-color: white;    
+    border-color: white;
+}
+.nav .active a{
+    color: #d89b00!important;
+    background-color: white!important;
+    border-top: red;
+    border-width: thick;
+}
+.nav .active{
+    list-style-position:inside;
+    border-top-width: 3px;
+    border-top-style: solid;
+    border-top-color:#d89b00;
+    
+}   
+.nav li{
+    list-style-position:inside;
+    border-right-style: solid;
+    border-right-width:1px;
+    border-right-color: #fafafa;
+    font-weight: 600;
+}
+.nav li a{
+    text-transform: uppercase;
+}
+.navbar-form .btn-default{
+    border-color: white!important;
+}
+.top-banner{
+    background: url('../../../image/leatherpattern.png') repeat center;
+    height:128px;
+    margin-bottom:-26px;
+}
+.top-banner h4{
+    color : #d89b00;
+    font-style: italic;
+    font-size:17px;
+}
+.navbar .container-fluid{
+    padding-left: 30px;
+    padding-right:30px;
+} 
+.navbar{
+    margin-bottom:0px;
+    border-radius:0px;
+}
+.navigation-container{
+    margin-bottom:-29px;
+}
+#mainContent{
+    /*padding-top: 26px;*/
+}

@@ -1,0 +1,77 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 07 28, 16, 5:01:30 PM
+    Author     : johnenrick
+*/
+
+#portalFirstContent{
+    background: url('../image/jumbotron.jpg') no-repeat center center fixed;
+}
+#portalFirstContent .jumbotron{
+    background-color : transparent;
+    color: white;
+    text-align: center;
+    height: 476px;
+}
+#portalFirstContent{
+        margin-bottom: -50px;
+}
+#portalSecondContent{
+    background-color: #f8f8f8;
+    padding-bottom: 62px;
+    
+}
+#portalSecondContent .scrolldown{
+    margin-top:-26px;
+    margin-bottom:50px;
+}
+#portalThirdContent{
+    padding-top:80px;
+    padding-bottom: 130px;
+}
+#portalSecondContent h2, #portalSecondContent h4{
+    /*font-weight:bold;*/
+}
+.programContainer{
+    margin-top:80px;
+}
+#portalFourthContent{
+    background-color: #f8f8f8;
+    padding-top: 60px;
+    padding-bottom:65px;
+}
+#portalFourthContent .card{
+    width:262px;
+    text-align:center;
+    background-color: white;
+    padding: 25px 16px 25px 16px;
+    
+    -webkit-box-shadow: 10px 9px 18px 1px rgba(243,243,243,1);
+    -moz-box-shadow: 10px 9px 18px 1px rgba(243,243,243,1);
+    box-shadow: 10px 9px 18px 1px rgba(243,243,243,1);
+    margin-bottom: 15px;
+    margin-top: 15px;
+}
+#portalFourthContent .cardGroup{
+    /*margin:63px 0 63px 0;*/
+}
+#portalFourthContent .groupLabel{
+    margin-top:58px;
+    margin-bottom: 45px;
+}
+#portalSixthContent{
+    border-top:solid;
+    border-bottom:solid;
+    border-color: #d89b00;
+    border-width : 4px;
+    height:258px;
+    background: url('../image/leatherpattern.png') repeat center;
+}
+#portalSixthContent .labelDescription{
+    color:white;
+    font-size:21px;
+}

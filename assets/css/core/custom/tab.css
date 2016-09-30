@@ -1,0 +1,59 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 08 16, 16, 9:09:26 PM
+    Author     : johnenrick
+*/
+
+.nav-tabs .active{
+    /*border-color: #d89b00!important*/
+        border-top: 3px solid #d89b00!important;
+        border-right: 1px solid #d89b00!important;
+        border-left: 1px solid #d89b00!important;
+        border-bottom:none!important;
+        /*border-bottom: none!important;*/
+        color:#d89b00!important;
+        font-weight:bold;
+        border-radius: 4px 4px 0 0;
+            
+}
+.nav-tabs .active a{
+    color:#d89b00!important;
+}
+.nav-tabs a{
+    /*border-color: #d89b00!important*/
+     border-top: none!important;
+    border-right: none!important;
+    border-left: none!important;   
+    border-bottom: none!important;   
+}
+.nav-tabs a:not(:last-child){
+    /*border-color: #d89b00!important*/
+    border-right: 1px solid #d89b00!important;
+    /*border-left: 1px solid #e7e7e7!important;*/
+        
+}
+.nav-tabs li{
+/*    border-top:none!important;
+    border-left:none!important;
+    border-right:none!important;*/
+    border-bottom-style :solid;
+    border-bottom: 1px solid #d89b00!important;
+}
+.nav-tabs a:hover{
+    background-color:transparent!important;
+    border-color : #d89b00!important;
+/*    border-top-color:transparent!important;
+    border-left-color:transparent!important;
+    border-right-color:transparent!important;*/
+    
+}
+@media (max-width: 601px){
+    .nav-tabs .active a{
+        border-top: 1px solid #d89b00!important;
+        border-bottom:1px solid #d89b00!important;
+    }
+}
