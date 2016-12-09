@@ -164,6 +164,7 @@
             $(':focus').blur();
         });
         moduleBody.find("#createGroup").click(function(){
+            listClassStudent(0);
             moduleBody.find("#moduleGroupInformation form").attr("action", api_url("C_training_module_group/createTrainingModuleGroup"));
             changeFieldName("create", moduleBody.find("#moduleGroupInformation form"));
             moduleBody.find("#moduleGroupInformation form").trigger("reset");
@@ -226,6 +227,26 @@
             }
             currentRow.remove();
         });
+        moduleBody.find("#exportClassList").click(function(){
+            var uri = 'data:application/vnd.ms-excel;base64,'
+              , template = '<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:x="urn:schemas-microsoft-com:office:excel" xmlns="http://www.w3.org/TR/REC-html40"><head><!--[if gte mso 9]><xml><x:ExcelWorkbook><x:ExcelWorksheets><x:ExcelWorksheet><x:Name>{worksheet}</x:Name><x:WorksheetOptions><x:DisplayGridlines/></x:WorksheetOptions></x:ExcelWorksheet></x:ExcelWorksheets></x:ExcelWorkbook></xml><![endif]--><meta http-equiv="content-type" content="text/plain; charset=UTF-8"/></head><body><table>{table}</table></body></html>'
+              , base64 = function(s) { return window.btoa(unescape(encodeURIComponent(s))) }
+              , format = function(s, c) { return s.replace(/{(\w+)}/g, function(m, p) { return c[p]; }) }
+            
+            
+            var table = moduleBody.find("#moduleGroupInformation .groupClassList").clone();
+            var name = "test";
+            table.find("td:nth-child(3)").remove();
+            table.find("th:nth-child(3)").remove();
+            table.find("tfoot").remove();
+            table.find("thead").prepend("<tr><th colspan='2'>"+moduleBody.find("#moduleGroupInformation select[field_name=training_module_ID] option:selected").text()+" Grp. "+moduleBody.find("#moduleGroupInformation input[name=ID]").val()+"</th></tr>")
+            var ctx = {worksheet: name || 'Worksheet', table: table.html()}
+            var link = document.createElement("a");
+            link.download = moduleBody.find("#moduleGroupInformation select[field_name=training_module_ID] option:selected").text()+" Grp. "+moduleBody.find("#moduleGroupInformation input[name=ID]").val()+".xls";
+            link.href = uri + base64(format(template, ctx));
+            link.click();
+            return true;
+        });
         function listTrainingModule(){
             moduleBody.find("#moduleGroupInformation select[field_name=training_module_ID]").empty();
             var request = api_request("C_training_module/retrieveTrainingModule", {}, function(response){
@@ -285,15 +306,38 @@
                 groupManagementTab.moduleTableList.table.append(newRow);
             }
         }
-        
+        function listClassStudent(moduleGroupID){
+            var condition = {
+                training_module_group_ID : moduleGroupID
+            };
+            var request = api_request("C_training_module_group_member/retrieveTrainingModuleGroupMember", {condition : condition}, function(response){
+                moduleBody.find("#moduleGroupInformation .groupClassList tbody").empty();
+                if(!response["error"].length){
+                    var studentData = response["data"];
+                    for(var x = 0; x < studentData.length; x++){
+                        var newRow = moduleBody.find(".prototype").find(".groupClassListRow").clone();
+                        newRow.attr("account_ID", studentData[x]["account_ID"]);
+                        newRow.find(".accountID").text(studentData[x]["account_ID"]);
+                        newRow.find(".accountFullName").text(studentData[x]["last_name"]+", "+studentData[x]["first_name"]+" "+studentData[x]["middle_name"]);
+                        moduleBody.find("#moduleGroupInformation .groupClassList").append(newRow);
+                    }
+                    moduleBody.find("#moduleGroupInformation .groupClassList").parent().parent().show();
+                }else{
+                    moduleBody.find("#moduleGroupInformation .groupClassList").parent().parent().hide();
+                }
+            })
+            return request;
+        }
         function viewModuleGroupInformation(trainingModuleGroupID){
             groupManagementTab.removedSchedule = [];
+            moduleBody.find("#moduleGroupInformation .groupClassList").parent().parent().hide();
             moduleBody.find("#moduleGroupInformation form").attr("action", api_url("c_training_module_group/updateTrainingModuleGroup"));
             moduleBody.find("#moduleGroupInformation form").trigger("reset");
             moduleBody.find("#moduleGroupInformation .groupScheduleTable tbody").empty();
             api_request("c_training_module_group/retrieveTrainingModuleGroup", {ID : trainingModuleGroupID, with_training_module_group_schedule : true}, function(response){
                 groupManagementTab.moduleTableList.table.find(".viewModuleGroupInformation").attr("disabled", false);
                 if(!response["error"].length){
+                    listClassStudent(response["data"]["ID"]);
                     changeFieldName("update", moduleBody.find("#moduleGroupInformation form"));
                     moduleBody.find("#moduleGroupInformation form input[name=ID]").val(response["data"]["ID"]);
                     moduleBody.find("#moduleGroupInformation form select[field_name=training_module_ID]").val(response["data"]["training_module_ID"]);

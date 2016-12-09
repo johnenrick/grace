@@ -32,7 +32,7 @@ class C_account extends API_Controller {
             $this->responseError(4, "Not authorized");
             $this->outputResponse();
         }
-        $this->form_validation->set_rules('username', 'Username', 'trim|required|alpha_numeric|callback_is_unique_username');
+        $this->form_validation->set_rules('username', 'Username', 'trim|required|callback_alpha_dash_space|callback_is_unique_username');
 //        $this->form_validation->set_rules('password', 'Password', 'trim|required|min_length[6]');
         $this->form_validation->set_rules('account_type_ID', 'Account Type', 'required');
         

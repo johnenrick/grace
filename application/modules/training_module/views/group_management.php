@@ -87,6 +87,33 @@
                                 <button type="button" class="anotherGroupSchedule btn btn-success pull-right"><i class="fa fa-calendar-plus-o" aria-hidden="true"></i> Add Another Schedule</button>
                             </div>
                         </div>
+                        <div class="row ">
+                            <div class="col-sm-12">
+                                
+                                
+                                <button id="exportClassList" type="button" class="btn btn-primary pull-left" >
+                                    <span class="glyphicon glyphicon-export"></span> Export Class List
+                                </button>
+                                <table class="groupClassList table table-responsive">
+                                    <thead>
+                                        <tr >
+                                            <th class="align-center" colspan="2">Class List</th>
+                                        </tr>
+                                        <tr>
+                                            <th>
+                                                ID
+                                            </th>
+                                            <th>
+                                                Full Name
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-danger pull-left deleteGroup no-display"><i class="fa fa-trash-o" aria-hidden="true"></i> Delete Group</button>
@@ -106,6 +133,10 @@
     </div>
     <div class="prototype">
         <table>
+            <tr class="groupClassListRow">
+                <td class="accountID"></td>
+                <td class="accountFullName"></td>
+            </tr>
             <tr class="moduleGroup" training_module_group_id="0">
                 <td class="trainingModuleGroupID"></td>
                 <td class="trainingModuleGroupDescription"></td>

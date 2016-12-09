@@ -443,12 +443,15 @@
                 <div class="grid-tile col-xs-6 col-sm-3 introSlideUp">
                     <div class="blog-item">
                         <div class="blog-img">
-                            <img class="img-responsive" src="<?= asset_url() ?>images/team-photo.jpg" />
+                            <img class="img-responsive" src="<?= asset_url() ?>images/cv/ahmad.jpg" />
                         </div>
                         <div class="blog-body">
                             <h4 class="mt15"><a href="#">Shamsuddin Ahmad</a></h4>
                             <ul class="blog-meta list-inline">
-                                <li>Training Consultant of McD</li>
+                                <li>BBBA, Australia</li>
+                            </ul>
+                            <ul class="blog-meta list-inline">
+                                <li>ACTA, Singapore</li>
                             </ul>
                         </div>   
                     </div>

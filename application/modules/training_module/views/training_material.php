@@ -10,22 +10,30 @@
 
                         </div>
                     </div>
+                    
                     <div class="row form-horizontal">
-                        
-                        <div class="col-sm-12 form-group">
-                            <label class="col-sm-4 btn btn-primary" for="trainingMaterialFileUploadInput">
-                                <input id="trainingMaterialFileUploadInput"name="userfile" type="file" style="display:none;" onchange="$('#trainingMaterialFileUploadLabel').html($(this).val().split('fakepath\\')[1]);">
-                                <i class="fa fa-folder-open" aria-hidden="true"></i> Select File to Upload
-                            </label>
-                            <label class="col-sm-4 align-center" for="" style="display:none">   
-                                <a id="downloadMaterial" href="" download="proposed_file_name" class="btn btn-primary"><i class="fa fa-download" aria-hidden="true"></i> Download Uploaded File</a>
-                            </label>
-                            <div class="col-sm-8">
-                                <span id="trainingMaterialFileUploadLabel" class="form-control" type="text" value="text"  ></span>
+                        <div class="col-sm-6 ">
+                            <div class="form-group">
+                                <label class="col-sm-4 align-center  btn btn-primary" for="trainingMaterialFileUploadInput">
+                                    <input id="trainingMaterialFileUploadInput"name="userfile" type="file" style="display:none;" onchange="$('#trainingMaterialFileUploadLabel').html($(this).val().split('fakepath\\')[1]);">
+                                    <i class="fa fa-folder-open" aria-hidden="true"></i> Select File
+                                </label>
+                                <label class="col-sm-4 align-center btn btn-primary" for="" style="display:none;">   
+                                    <a id="downloadMaterial" href="" download="proposed_file_name" class="" style="color:white"><i class="fa fa-download" aria-hidden="true"></i> Download File</a>
+                                </label>
+                                <div class="col-sm-8">
+                                    <span id="trainingMaterialFileUploadLabel" class="form-control" type="text" value="text"  ></span>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="row form-horizontal">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label  class="col-sm-4 control-label">Description</label>
+                                <div class="col-sm-8">
+                                    <input field_name="description" type="text" class="form-control"  placeholder="Description">
+                                </div>
+                            </div>
+                        </div>
                         <div class="col-sm-6">
                             <div class="form-group">
                                 <label  class="col-sm-4 control-label">Training Module</label>
@@ -37,9 +45,10 @@
                         </div>
                         <div class="col-sm-6">
                             <div class="form-group">
-                                <label  class="col-sm-4 control-label">Description</label>
+                                <label  class="col-sm-4 control-label">Training Group</label>
                                 <div class="col-sm-8">
-                                    <input field_name="description" type="text" class="form-control"  placeholder="Description">
+                                    <select field_name="training_module_group_ID" type="text" class="form-control"  placeholder="Group">
+                                    </select>
                                 </div>
                             </div>
                         </div>
@@ -73,7 +82,8 @@
                 <td class="trainingMaterialDescription"></td>
                 <td class="trainingMaterialModuleDescription"></td>
                 <td class="moduleAction">
-                    <button class="viewTrainingMaterialInformation btn btn-xs btn-primary"><i class="fa fa-search" aria-hidden="true"></i> View</button>
+                    <a class="downloadMaterial" href="" download="proposed_file_name" class="btn btn-primary" style="display:none"><i class="fa fa-download" aria-hidden="true"></i> Download Material</a>
+                    <button class="viewTrainingMaterialInformation btn btn-xs btn-primary" style="display:none"><i class="fa fa-search" aria-hidden="true"></i> View</button>
                 </td>
             </tr>
         </table>

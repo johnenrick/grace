@@ -4,8 +4,8 @@
             <div class="col-xs-3">
                 <ul class="nav nav-pills nav-stacked">
                     <li role="presentation" ><a href="#trainingModuleModuleTab" aria-controls="trainingModuleModuleTab" role="tab" data-toggle="tab">Module</a></li>
-                    <li role="presentation" ><a href="#trainingModuleGroupTab" aria-controls="trainingModuleGroupTab" role="tab" data-toggle="tab">Group</a></li>
-                    <li role="presentation" class="active"><a href="#trainingModuleTrainingMaterialTab" aria-controls="trainingModuleTrainingMaterialTab" role="tab" data-toggle="tab">Materials</a></li>
+                    <li role="presentation" class="active"><a href="#trainingModuleGroupTab" aria-controls="trainingModuleGroupTab" role="tab" data-toggle="tab">Group</a></li>
+                    <li role="presentation" ><a href="#trainingModuleTrainingMaterialTab" aria-controls="trainingModuleTrainingMaterialTab" role="tab" data-toggle="tab">Materials</a></li>
 
                 </ul>
             </div>
@@ -14,10 +14,10 @@
                     <div role="tabpanel" class="tab-pane " id="trainingModuleModuleTab">
                         <!--Load module management here-->
                     </div>
-                    <div role="tabpanel" class="tab-pane" id="trainingModuleGroupTab">
+                    <div role="tabpanel" class="tab-pane active" id="trainingModuleGroupTab">
                        
                     </div>
-                    <div role="tabpanel" class="tab-pane active" id="trainingModuleTrainingMaterialTab">
+                    <div role="tabpanel" class="tab-pane " id="trainingModuleTrainingMaterialTab">
                        
                     </div>
                 </div>

@@ -66,6 +66,7 @@ class C_training_module_group extends API_Controller {
                     $this->input->post("condition"),
                     $this->input->post("additional_data")
                     );
+            $this->responseDebug($this->input->post("condition"));
             if($this->input->post("limit")){
                 $this->responseResultCount($this->m_training_module_group->retrieveTrainingModuleGroup(
                     1,

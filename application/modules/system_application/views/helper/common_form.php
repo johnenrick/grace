@@ -15,7 +15,6 @@
                 var response = JSON.parse(data);
                 if(response["error"].length){
                     show_form_error(formElement, response["error"]);
-                    console.log(response["error"])
                 }else{
                     formElement.find(".formLabelIndicator.label-success").show()
                 }
@@ -67,7 +66,6 @@
             formElement.attr("action", api_url(createLink));
             changeFieldName("create", formElement);
             formElement.find(".formActionButton button[action=delete]").hide();
-            console.log(formElement.find(".formActionButton button[action=delete]"))
             formHandler.formMode = "create";
             if(typeof callbackFn !== "undefined"){
                 callbackFn();

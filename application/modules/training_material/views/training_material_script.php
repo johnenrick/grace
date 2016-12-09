@@ -84,7 +84,6 @@
             
         });
         moduleBody.find("#trainingMaterialInformation select[field_name=training_module_ID]").change(function(){
-            
             listTrainingModuleGroup();
         });
         /*Functions*/
@@ -106,12 +105,10 @@
             moduleBody.find("#trainingMaterialInformation select[field_name=training_module_group_ID]").empty();
             moduleBody.find("#trainingMaterialInformation select[field_name=training_module_group_ID]").append("<option value='"+0+"'>All</option>");
             var condition = {
-                training_module_ID: moduleBody.find("#trainingMaterialInformation input[field_name=training_module_group_ID]").val(), 
+                training_module_ID: moduleBody.find("#trainingMaterialInformation select[field_name=training_module_ID]").val(), 
                 instructor_account_ID: user_id()
             };
-            console.log("tae1");
-            var request = api_request("c_training_module_group/retrieveTrainingModuleGroup", condition, function(response){
-                console.log("tae2");
+            var request = api_request("c_training_module_group/retrieveTrainingModuleGroup",{ condition : condition}, function(response){
                 if(!response["error"].length){
                     for(var x =0; x <response["data"].length;x++){
                         moduleBody.find("#trainingMaterialInformation select[field_name=training_module_group_ID]").append("<option value='"+response["data"][x]["ID"]+"'>"+"Grp. "+response["data"][x]["ID"]+"</option>");
@@ -139,7 +136,6 @@
                 newRow.find(".trainingMaterialModuleGroup").text((data[x]["training_module_group_ID"]*1) ? data[x]["training_module_group_ID"] : "None");
                 newRow.find(".trainingMaterialModuleFileType").text((data[x]["file_uploaded_description"].split("."))[1]);
                 if(data[x]["uploader_account_ID"]*1 === user_id()){
-                   
                     newRow.find(".viewTrainingMaterialInformation").show();
                 }else{
                     newRow.find(".downloadMaterial").show();
@@ -164,6 +160,11 @@
                     moduleBody.find("#trainingMaterialInformation form #trainingMaterialFileUploadLabel").text(response["data"]["file_uploaded_description"]);
                     moduleBody.find("#trainingMaterialInformation form input[field_name=description]").val(response["data"]["description"]);
                     moduleBody.find("#trainingMaterialInformation form select[field_name=training_module_ID]").val(response["data"]["training_module_ID"]);
+                    var trainingModuleGroupRequest = listTrainingModuleGroup();
+                    trainingModuleGroupRequest.done(function(){
+                        moduleBody.find("#trainingMaterialInformation form select[field_name=training_module_group_ID]").val(response["data"]["training_module_group_ID"]);
+                    })
+                    
                     moduleBody.find("#trainingMaterialInformation form #downloadMaterial").attr("href", asset_url("user_upload/"+response["data"]["uploader_account_ID"]+"/"+response["data"]["file_uploaded_description"]));
                     moduleBody.find("#trainingMaterialInformation form #downloadMaterial").attr("download", response["data"]["description"]);
                 }

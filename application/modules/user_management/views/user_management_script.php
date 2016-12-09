@@ -71,6 +71,7 @@
         moduleBody.find("#userInformation form").ajaxForm({
             beforeSubmit : function(data, $form, options){
                 clear_form_error(moduleBody.find("#userInformation form"));
+                moduleBody.find("#userInformation .modal-footer button").attr("disabled", true);
                 data.push({
                     name : "username",
                     required : false,
@@ -156,7 +157,12 @@
                     show_form_error(moduleBody.find("#userInformation form"), response["error"]);
                 }
                 userManagement.userTableList.retrieveEntry();
+                moduleBody.find("#userInformation .modal-footer button").attr("disabled", false);
             }
+        });
+        moduleBody.find("#userInformation form").on("reset", function(){
+           moduleBody.find("#userInformation .educationalBackgroundTable tbody").empty();
+           moduleBody.find("#userInformation .personalInterestTable tbody").empty();
         });
         moduleBody.find("#createUser").click(function(){
             moduleBody.find("#userInformation form").attr("action", api_url("c_account/createAccount"));
@@ -244,13 +250,11 @@
             }
         }
         function viewUserInformation(accountID){
-            console.log("gothere")
             moduleBody.find("#userInformation form").attr("action", api_url("c_account/updateAccount"));
             moduleBody.find("#userInformation form").trigger("reset");
             moduleBody.find("#userInformation .educationalBackgroundTable tbody").empty();
             moduleBody.find("#userInformation .personalInterestTable tbody").empty();
             api_request("c_account/retrieveAccount", {ID : accountID, with_educational_background: true, with_personal_interest : true}, function(response){
-                console.log("gothere1")
                 userManagement.userTableList.table.find(".viewUserInformation").attr("disabled", false);
                 if(!response["error"].length){
                     changeFieldName("update", moduleBody.find("#userInformation form"));
